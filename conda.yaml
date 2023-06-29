@@ -1,0 +1,21 @@
+name: code_interpreter
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - python-dotenv
+    - quart
+    - quart-cors
+    - requests
+    - beautifulsoup4
+    - tiktoken
+    - openai
+    - numpy
+    - pandas
+    - matplotlib
+    - scipy
+    - astunparse
+    - scikit-learn
+    - seaborn

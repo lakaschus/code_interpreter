@@ -1,0 +1,13 @@
+INFO - Execution Result: {'abc': <function abc at 0x000001C8F73BCA60>, 'mul': <function mul at 0x000001C8F73E7430>, 'x': 3, 'i': 2}
+INFO - Execution output: abc
+abc
+abc
+12
+
+ERROR - Error during execution: 
+['Traceback (most recent call last):\n', '  File "C:\\Users\\Phillip\\GoogleDriveMirror\\AGI\\code_interpreter\\code_interpreter.py", line 56, in execute_code\n    exec(self.code_text, exec_globals, exec_locals)\n', '  File "<string>", line 13, in <module>\n', 'ZeroDivisionError: division by zero\n']
+INFO - Execution output: abc
+abc
+abc
+12
+

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="42.52232mm"
+   height="42.52232mm"
+   viewBox="0 0 42.52232 42.52232"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect835"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="124.60299"
+     inkscape:cy="184.62097"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="3840"
+     inkscape:window-height="2066"
+     inkscape:window-x="-11"
+     inkscape:window-y="49"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-40.82143,-66.712799)">
+    <rect
+       style="fill:#000032;fill-opacity:1;stroke:none;stroke-width:1.72704;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect845"
+       width="42.52232"
+       height="42.52232"
+       x="40.82143"
+       y="66.712799"
+       inkscape:export-filename="C:\Users\Phillip\GoogleDriveMirror\AGI\summarizer_plugin\logo.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#7dd0ff;stroke-width:1.707;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 79.574562,69.400822 c -7.278128,5.013776 -14.556366,10.027629 -12.257771,13.311422 2.298595,3.283794 14.173381,4.837351 12.640918,8.615401 -1.532463,3.77805 -16.471709,9.780435 -31.411434,15.783005"
+       id="path833"
+       inkscape:path-effect="#path-effect835"
+       inkscape:original-d="M 79.574562,69.400822 C 72.29659,74.414825 65.018352,79.428677 57.739843,84.442382 69.615371,85.99615 81.490157,87.549706 93.364911,89.103146 78.425336,95.105918 63.48609,101.1083 48.546275,107.11065"
+       inkscape:export-filename="C:\Users\Phillip\GoogleDriveMirror\AGI\summarizer_plugin\logo.png"
+       inkscape:export-xdpi="400"
+       inkscape:export-ydpi="400" />
+  </g>
+</svg>

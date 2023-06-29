@@ -1,0 +1,87 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Code Interpreter API"
+paths:
+  /code:
+    post:
+      code: "Start a new summarization task"
+      operationId: "add"
+      requestBody:
+        description: "Code to execute on the server"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                url:
+                  type: "string"
+      responses:
+        "202":
+          description: "Accepted. The task has been accepted for processing, but the processing has not been completed."
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  task_id:
+                    type: "string"
+  /result/{task_id}:
+    get:
+      result: "Get the result of a code execution task"
+      operationId: "get_result"
+      parameters:
+      - name: "task_id"
+        in: "path"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  summary:
+                    type: "string"
+        "202":
+          description: "Accepted but not ready"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  status:
+                    type: "string"
+  /logo.png:
+    get:
+      summary: "Get the plugin logo"
+      operationId: "plugin_logo"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            image/png: {}
+
+  /.well-known/ai-plugin.json:
+    get:
+      summary: "Get the plugin manifest"
+      operationId: "plugin_manifest"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            text/json: {}
+
+  /openapi.yaml:
+    get:
+      summary: "Get the OpenAPI specification"
+      operationId: "openapi_spec"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            text/yaml: {}

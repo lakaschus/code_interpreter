@@ -1,0 +1,13 @@
+def abc():
+    return "abc"
+
+def mul(a, b):
+    return a * b
+
+x = 3
+
+for i in range(x):
+    print(abc())
+
+print(mul(3, 4))
+y = x / (x - 3)

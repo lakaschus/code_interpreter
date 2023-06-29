@@ -1,0 +1,7 @@
+ERROR - Error during execution: 
+['Traceback (most recent call last):\n', '  File "C:\\***\\code_interpreter\\code_interpreter.py", line 56, in execute_code\n    exec(self.code_text, exec_globals, exec_locals)\n', '  File "<string>", line 13, in <module>\n', 'ZeroDivisionError: division by zero\n']
+INFO - Execution output: abc
+abc
+abc
+12
+

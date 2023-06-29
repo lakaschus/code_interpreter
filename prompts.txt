@@ -1,0 +1,8 @@
+I am planning to build a ChatGPT plugin that summarizes large pieces of text which do not fit into the context window size. My high-level plan involves splitting the text into meaningful chunks, creating individual summaries for each chunk, and finally combining them all into one coherent summary. I need help in detailing the approach to programming this. Here is my high-level plan:
+
+1) Determine length of text and make sure it shorter than 100k words (just to be sure not wasting too many money on calling the ChatGPT API)
+2) Split text into multiple text chunks of maximum size L_max each, such that it just fits in the context window of ChatGPT. Make sure that splitting of the text into multiple chunks is meaningful, for instance into multiple paragraphs that conceptually belong together.
+3) For each chunk of text, if the chunk of text is larger than the maximum context window of ChatGPT divided by the number of chunks, create a summary, such that the summary is shorter than the maximum context window of ChatGPT divided by the number of chunks. One approach here might be to repeatedly summarize until this condition is fulfilled for each chunk.
+4) Finally, all chunks of text combined should be shorter than the maximum window size. Do a final summary such that one obtains one coherent and well connected summary. It is important that one does not get the feeling of reading multiple summaries.
+
+Now, can you help me creating a python module that does this? It does not have to be perfect, but it should be a good starting point.

@@ -1,0 +1,6 @@
+quart
+quart-corspip
+requests
+beautifulsoup4
+pdfminer.six
+tiktoken

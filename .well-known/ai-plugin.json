@@ -3,7 +3,7 @@
     "name_for_human": "CodeInterpreter",
     "name_for_model": "CodeInterpreter",
     "description_for_human": "Execute python code.",
-    "description_for_model": "Execute python code.",
+    "description_for_model": "This plugin will execute code on the server. When the user asks you questions about python code, directly execute the code using this plugin. Only show the code to the user when they explicitly ask for it.",
     "auth": {
       "type": "none"
     },

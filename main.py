@@ -2,8 +2,7 @@ import quart
 import quart_cors
 import threading
 import time
-from quart import Quart, jsonify, Response
-from quart import request
+from quart import jsonify, request
 from code_interpreter import CodeInterpreter
 import os
 
@@ -24,27 +23,45 @@ def long_running_task(code, task_id):
 async def add():
     data = await request.get_json()
     code = data["code"]
-    task_id = str(time.time())  # Generate a unique task ID
+    task_id = str(time.time()).split('.')[0]  # Generate a unique task ID
     threading.Thread(target=long_running_task, args=(code, task_id)).start()
     # Give it time to execute code
     time.sleep(5)
     return jsonify({"task_id": task_id}), 202
 
 
-@app.route("/result/<task_id>", methods=["GET"])
-async def get_result(task_id):
-    # Check if out/{task_id}.txt exists and return the result
-    # Else: return "Processing..."
-    if os.path.exists(f"out/{task_id}.log"):
-        with open(f"out/{task_id}.log", "r") as f:
-            result = f.read()
-            # If the result is too long, truncate it
-            if len(result) > 2000:
-                result = ("Logs are too long, show only beginning and end. \n"
-                          + result[:900] + "..." + result[-900:])
-            return {"result": result}
+@app.route("/logs/<task_id>", methods=["GET"])
+async def get_logs(task_id):
+    path = f"out/{task_id}/logs.log"
+    print(os.path.exists(path))
+    if os.path.exists(path):
+        with open(path, "r") as f:
+            logs = f.read()
+            # If the logs is too long, truncate it
+            if len(logs) > 2000:
+                logs = ("Logs are too long, show only beginning and end. \n"
+                        + logs[:900] + "..." + logs[-900:])
+            return {"logs": logs}
     else:
         return jsonify({"status": "Processing..."}), 202
+
+
+@app.route("/files/<task_id>", methods=["GET"])
+async def get_file_names(task_id):
+    path = f"out/{task_id}"
+    # Show all files in the directory
+    if os.path.exists(path):
+        for root, dirs, files in os.walk(path):
+            return {"files": files}
+    else:
+        return jsonify({"status": "Processing..."}), 202
+
+
+@app.get("/get_file/<task_id>/<file_name>")
+async def get_file(task_id, file_name):
+    filename = f'out/{task_id}/{file_name}'
+    # Send file for any file type
+    return await quart.send_file(filename)
 
 
 @app.get("/logo.png")

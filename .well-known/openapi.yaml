@@ -27,10 +27,10 @@ paths:
                 properties:
                   task_id:
                     type: "string"
-  /result/{task_id}:
+  /logs/{task_id}:
     get:
-      result: "Get the result of a code execution task"
-      operationId: "get_result"
+      result: "Get the logs of a code execution task"
+      operationId: "get_logs"
       parameters:
       - name: "task_id"
         in: "path"
@@ -56,6 +56,71 @@ paths:
                 properties:
                   status:
                     type: "string"
+    /files/{task_id}:
+    get:
+      summary: Get all files in a directory
+      parameters:
+        - in: path
+          name: task_id
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  files:
+                    type: array
+                    items:
+                      type: string
+        '202':
+          description: Processing
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+    servers:
+      - url: http://localhost:8000
+  /get_file/{task_id}/{file_name}:
+    get:
+      summary: Get a file by name
+      parameters:
+        - in: path
+          name: task_id
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+        - in: path
+          name: file_name
+          required: true
+          description: The name of the file
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
   /logo.png:
     get:
       summary: "Get the plugin logo"

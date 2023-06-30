@@ -7,16 +7,24 @@ import contextlib
 import io
 import logging
 import astunparse
+import os
+
 
 class CodeInterpreter:
 
     def __init__(self, task_id, code_text):
+        # Create out/task_id/ directory
+        wd = f"out/{task_id}"
+        if not os.path.exists(wd):
+            os.makedirs(wd)
+        # Set working directory to out/task_id/
+        os.chdir(wd)
         self.code_text = code_text
         self.task_id = task_id
         self.start_time = time.time()
         self.logger = logging.getLogger('CodeInterpreter')
         self.logger.setLevel(logging.INFO)
-        fh = logging.FileHandler(f'out/{task_id}.log')
+        fh = logging.FileHandler('logs.log')
         fh.setLevel(logging.INFO)
         formatter = logging.Formatter('%(levelname)s - %(message)s')
         fh.setFormatter(formatter)
@@ -60,6 +68,9 @@ class CodeInterpreter:
                 self.logger.error('Error during execution: \n%s', traceback.format_exception(*sys.exc_info()))
 
         self.logger.info('Execution output: %s', f.getvalue())
+        
+        # Go back to original directory
+        os.chdir("../..")
 
 
 def main(example):

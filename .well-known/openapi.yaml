@@ -59,6 +59,7 @@ paths:
   /files/{task_id}:
     get:
       summary: Get all files in a directory
+      operationId: "files"
       parameters:
         - in: path
           name: task_id
@@ -90,6 +91,7 @@ paths:
   /get_file/{task_id}/{file_name}:
     get:
       summary: Get a file by name
+      operationId: "get_files"
       parameters:
         - in: path
           name: task_id

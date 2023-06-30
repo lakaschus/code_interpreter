@@ -8,6 +8,8 @@ import os
 
 app = quart_cors.cors(quart.Quart(__name__), allow_origin="https://chat.openai.com")
 
+CODE_BLACKLIST = ["show()", "show(", "input("]
+
 
 @app.route("/")
 def home():
@@ -23,11 +25,13 @@ def long_running_task(code, task_id):
 async def add():
     data = await request.get_json()
     code = data["code"]
+    if any([blacklisted_code in code for blacklisted_code in CODE_BLACKLIST]):
+        return jsonify({"error": "Code contains interactive code parts, like show(), input(), etc. This plugin does not allow the execution of interactive code"}), 202
     task_id = str(time.time()).split('.')[0]  # Generate a unique task ID
     threading.Thread(target=long_running_task, args=(code, task_id)).start()
     # Give it time to execute code
     time.sleep(5)
-    return jsonify({"task_id": task_id}), 202
+    return jsonify({"task_id": task_id}), 200
 
 
 @app.route("/logs/<task_id>", methods=["GET"])

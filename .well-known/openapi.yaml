@@ -18,7 +18,7 @@ paths:
                 code:
                   type: "string"
       responses:
-        "202":
+        "200":
           description: "Accepted. The task has been accepted for processing, but the processing has not been completed."
           content:
             application/json:
@@ -26,6 +26,15 @@ paths:
                 type: "object"
                 properties:
                   task_id:
+                    type: "string"
+        "202":
+          description: "Code contains interactive code parts, like show(), input(), etc. This plugin does not allow the execution of interactive code"
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  status:
                     type: "string"
   /logs/{task_id}:
     get:

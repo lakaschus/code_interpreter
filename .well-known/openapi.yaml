@@ -38,7 +38,7 @@ paths:
                     type: "string"
   /logs/{task_id}:
     get:
-      summary: "Retrieve the logs of a code execution task. Use this endpoint whenever there are errors of any kind.""
+      summary: "Retrieve the logs of a code execution task. Use this endpoint whenever there are errors of any kind."
       operationId: "get_logs"
       parameters:
       - name: "task_id"

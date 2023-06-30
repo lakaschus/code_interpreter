@@ -26,6 +26,8 @@ async def add():
     code = data["code"]
     task_id = str(time.time())  # Generate a unique task ID
     threading.Thread(target=long_running_task, args=(code, task_id)).start()
+    # Give it time to execute code
+    time.sleep(5)
     return jsonify({"task_id": task_id}), 202
 
 

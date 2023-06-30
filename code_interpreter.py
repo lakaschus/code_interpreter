@@ -29,6 +29,7 @@ class CodeInterpreter:
         formatter = logging.Formatter('%(levelname)s - %(message)s')
         fh.setFormatter(formatter)
         self.logger.addHandler(fh)
+        self.finished = False
 
     def is_code_safe(self, tree):
         return True
@@ -71,6 +72,7 @@ class CodeInterpreter:
         
         # Go back to original directory
         os.chdir("../..")
+        self.finished = True
 
 
 def main(example):

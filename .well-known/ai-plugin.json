@@ -3,7 +3,7 @@
     "name_for_human": "CodeInterpreter",
     "name_for_model": "CodeInterpreter",
     "description_for_human": "Execute python code.",
-    "description_for_model": "This plugin will execute code on the server. When the user asks you questions about python code, directly execute the code using this plugin. Only show the code to the user when they explicitly ask for it. This API is not interactive, so do not request to execute any code that needs interaction from the user, like inputs, showing images, etc. Instead, save the images. The API provides the following endpoint to download the images or other files for the user: https://ai.yaoyaopianist.de/get_file/<task_id>/<file_name>",
+    "description_for_model": "Use this plugin to execute Python code server-side when asked by the user. Only share the code if explicitly requested. The API isn't interactive, so avoid code requiring user interaction. Save images and provide a download link using this format: https://ai.yaoyaopianist.de/get_file/<task_id>/<file_name>. Display images using markdown in the chat (without code formatting or highlighting). For non-image files, just provide the download URL.",
     "auth": {
       "type": "none"
     },

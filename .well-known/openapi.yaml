@@ -56,7 +56,7 @@ paths:
                 properties:
                   status:
                     type: "string"
-    /files/{task_id}:
+  /files/{task_id}:
     get:
       summary: Get all files in a directory
       parameters:
@@ -87,8 +87,6 @@ paths:
                 properties:
                   status:
                     type: string
-    servers:
-      - url: http://localhost:8000
   /get_file/{task_id}/{file_name}:
     get:
       summary: Get a file by name

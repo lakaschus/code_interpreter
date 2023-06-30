@@ -5,7 +5,7 @@ info:
 paths:
   /code:
     post:
-      code: "Start a new summarization task"
+      summary: "Start a new summarization task"
       operationId: "add"
       requestBody:
         description: "Code to execute on the server"
@@ -38,7 +38,7 @@ paths:
                     type: "string"
   /logs/{task_id}:
     get:
-      result: "Get the logs of a code execution task"
+      summary: "Retrieve the logs of a code execution task. Use this endpoint whenever there are errors of any kind.""
       operationId: "get_logs"
       parameters:
       - name: "task_id"
@@ -67,7 +67,7 @@ paths:
                     type: "string"
   /files/{task_id}:
     get:
-      summary: Get all files in a directory
+      summary: "Get all files in a directory"
       operationId: "files"
       parameters:
         - in: path

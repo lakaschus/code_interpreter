@@ -57,6 +57,13 @@ async def get_file_names(task_id):
         return jsonify({"status": "Processing..."}), 202
 
 
+@app.get("/get_url/<task_id>/<file_name>")
+async def get_url(task_id, file_name):
+    url = f'https://ai.yaoyaopianist.de/get_file/{task_id}/{file_name}'
+    # Send url for any url type
+    return {"url": url}
+
+
 @app.get("/get_file/<task_id>/<file_name>")
 async def get_file(task_id, file_name):
     filename = f'out/{task_id}/{file_name}'

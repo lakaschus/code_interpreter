@@ -88,39 +88,6 @@ paths:
                 properties:
                   status:
                     type: string
-  /get_file/{task_id}/{file_name}:
-    get:
-      summary: Get a file by name
-      operationId: "get_files"
-      parameters:
-        - in: path
-          name: task_id
-          required: true
-          description: The ID of the task
-          schema:
-            type: string
-        - in: path
-          name: file_name
-          required: true
-          description: The name of the file
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/octet-stream:
-              schema:
-                type: string
-        '404':
-          description: Not Found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
   /logo.png:
     get:
       summary: "Get the plugin logo"
